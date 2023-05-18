@@ -1,7 +1,14 @@
-import Header from '../Header'
-import './index.css'
+import { Redirect } from "react-router-dom";
+import Header from '../Header';
+import Jobs from "../Jobs";
+import './index.css';
 
-const Home = () => (
+const onclickFindJobs = (props) => {
+  const { history } = props;
+  history.replace("/jobs");
+};
+
+const Home = (props) => (
   <div className="home-background">
     <Header />
     <h1 className="heading">
@@ -13,11 +20,11 @@ const Home = () => (
       abilities and potential.
     </p>
     <div className="buttn">
-      <button type="button" className="findjobs-button">
+      <button type="button" className="findjobs-button" onClick={() => onclickFindJobs(props)}>
         Find Jobs
       </button>
     </div>
   </div>
-)
+);
 
-export default Home
+export default Home;
